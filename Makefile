@@ -1,12 +1,9 @@
-repository := quay.io/qoqodev/active-standby-controller
+repository := fra.ocir.io/axj3k4dkrqku/active-standby-controller
 
-default: slim
+default: build
 
 build:
 	docker build --rm -t $(repository):latest .
 
-slim: build
-	echo | docker-slim build --tag $(repository):slim $(repository):latest
-
 push:
-	docker push $(repository):slim
+	docker push $(repository):latest
